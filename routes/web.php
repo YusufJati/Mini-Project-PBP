@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DetailController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -20,3 +21,5 @@ use App\Http\Controllers\DashboardController;
 
 
 Route::get('/', [DashboardController::class, 'index']);
+
+Route::get('/detail', [DetailController::class, 'index']);

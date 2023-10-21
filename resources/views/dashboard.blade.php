@@ -13,7 +13,7 @@
 
     {{-- search --}}
 
-    
+
 
     {{-- isi content --}}
     <div class="container">
@@ -21,7 +21,7 @@
             {{-- foreach --}}
             <div class="card mb-3 p-0" style="max-width: 300px;">
                 <div class="row g-0">
-                    <a href="#" class="text-decoration-none text-dark d-flex">
+                    <a href="/detail" class="text-decoration-none text-dark d-flex">
                         {{-- gambar --}}
                         <div class="images col-md-4">
                             <img src="assets/dilan.jpg" class="img-fluid rounded-start" alt="...">
