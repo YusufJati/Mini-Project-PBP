@@ -3,27 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perpustakaan | @yield('title')</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    {{-- Bootsrap icons --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+    crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    {{-- css --}}
-    <link rel="stylesheet" href="/css/style.css">
 </head>
+
+<style>
+    .main{
+        height: 100vh;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .center-form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        flex-grow: 1;
+    }
+
+    .search-input {
+        width: 350px; 
+ 
+    }
+    
+
+</style>
 <body>
-
-    {{-- navbar --}}
-    @include('partials.navbar')
-
-    <div class="container mt-3">
-        @yield('content')
+    <div class="main">
+        <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ asset('images/bukk.png') }}" width="30" height="30" class="d-inline-block align-text-top me-0">    
+                    Perpustakaan
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    
+                    <div class="center-form">
+                        <form class="d-flex p-2" role="search" >
+                        <br><input class="form-control me-3 search-input" type="search" placeholder="Cari Judul Buku, Penulis, ISBN" aria-label="Search"> 
+                        </form>  
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-success text-white" type="submit">Sign Up</button>
+                        <button type="button" class="btn btn-secondary" type="submit">Sign In</button>
+                    </div>           
+                </div>
+            </div>
+        </nav>
+        <div class="body-content">
+            <div class="row g-0 h-100">
+                <div class="content p-5">
+                    @yield('content')
+                </div>
+            </div>
+                
+        </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

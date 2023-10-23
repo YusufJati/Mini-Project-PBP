@@ -8,10 +8,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard', [
-            'image' => 'undip.png',
-            'title' => 'Dashboard',
-            'active' => 'dashboard',
-        ]);
+        return view('dashboard');
     }
 }
