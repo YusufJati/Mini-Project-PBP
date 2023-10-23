@@ -50,8 +50,9 @@
                         </form>  
                     </div>
                     <div>
-                        <button class="btn btn-outline-success text-white" type="submit">Sign Up</button>
-                        <button type="button" class="btn btn-secondary" type="submit">Sign In</button>
+                        <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a>
+                        <a class="btn btn-outline-success text-white" href="{{ route('anggota.login') }}">Sign In</a>
+
                     </div>           
                 </div>
             </div>
