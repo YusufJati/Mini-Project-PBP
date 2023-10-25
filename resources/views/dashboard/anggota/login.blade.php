@@ -33,7 +33,7 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
                     <br>
-                    <!-- <a href="{{ route('anggota.register') }}"> Create new Account</a> -->
+                    <a href="{{ route('anggota.register') }}"> Create new Account</a> 
                 </form>
             </div>
         </div>
