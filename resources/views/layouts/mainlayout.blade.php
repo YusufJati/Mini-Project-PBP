@@ -50,7 +50,7 @@
                         </form>  
                     </div>
                     <div>
-                        <!-- <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a> -->
+                        <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a>
                         <a class="btn btn-outline-success text-white" href="{{ route('anggota.login') }}">Sign In</a>
 
                     </div>           
