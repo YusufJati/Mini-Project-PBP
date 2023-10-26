@@ -14,11 +14,6 @@ class Anggota extends Authenticatable
     protected $table = 'anggota';
     public $timestamps = false;
     protected $primaryKey = 'noktp';
-
-    public function getRatingAnggota() {
-        return $this->hasOne(Rating_buku::class, 'noktp', 'noktp');
-    }
-
     /**
      * The attributes that are mass assignable.
      *
