@@ -17,6 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'anggota' => [
+        'driver' => 'eloquent',
+        'model' =>App\Models\Anggota::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +43,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'anggota' => [
+            'driver' => 'session',
+            'provider' => 'anggota',
         ],
     ],
 
@@ -69,6 +78,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'anggota' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Anggota::class,
+        ],
     ],
 
     /*
@@ -97,6 +110,10 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'anggota' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Anggota::class,
+        ]
     ],
 
     /*

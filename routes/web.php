@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\Anggota\AnggotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,14 +31,20 @@ Auth::routes();
 
 Route::prefix('anggota')->name('anggota.')->group(function(){
 
-    Route::middleware(['guest'])->group(function(){
+    Route::middleware(['guest:anggota'])->group(function(){
         Route::view('/login','dashboard.anggota.login')->name('login');
         Route::view('/register','dashboard.anggota.register')->name('register');
         Route::post('/create',[AnggotaController::class,'create'])->name('create');
+        Route::post('/check',[AnggotaController::class,'check'])->name('check');
     });
 
-    Route::middleware(['auth'])->group(function(){
-
+    Route::middleware(['auth:anggota'])->group(function(){
+        Route::view('/mainhome','dashboard.anggota.mainhome')->name('mainhome');
     });
 
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/riwayat', [AnggotaController::class, 'riwayat'])->name('anggota.riwayat');
