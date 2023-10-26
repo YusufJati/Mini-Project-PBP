@@ -60,4 +60,9 @@ class AnggotaController extends Controller
             return redirect()->route('anggota.login')->with('fail','Incorrect Credentials');
         }
     }
+
+    function riwayat()
+    {
+        return view('dashboard.anggota.riwayat');
+    }
 }
