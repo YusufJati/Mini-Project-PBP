@@ -24,6 +24,7 @@
                         <div class="detail-book col-md-8"> <!-- Kolom detail buku -->
                             <div class="card-body">
                                 <h5 class="card-title">{{ $buku->judul }}</h5>
+                                <p class="card-text"> {{ $buku->getRatingBuku->skor_rating ?? '-' }} <span class="starContainer"></span></p>
                                 <li class="list-group-item">
                                     <table>
                                         <tr>
@@ -80,11 +81,6 @@
                                     <td><small>{{ $komentar->getAnggotaKomentar->nama }}</small></td>
                                 </tr>
                                 <tr>
-                                    <td><small>{{ $komentar->getAnggotaKomentar->getRatingAnggota->skor_rating }}</small>
-                                        <span class="starContainer"></span>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td><small>{{ $komentar->komentar }}</small></td>
                                 </tr>
                             </table>
@@ -125,7 +121,7 @@
             }
 
             const ratingContainer = document.querySelector('.starContainer');
-            generateStars({{ $komentar->getAnggotaKomentar->getRatingAnggota->skor_rating }}, ratingContainer);
+            generateStars({{ $buku->getRatingBuku->skor_rating ?? 0 }}, ratingContainer);
         </script>
 
 @endsection

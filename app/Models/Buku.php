@@ -19,4 +19,8 @@ class Buku extends Model
         return $this->hasOne(Kategori::class, 'idkategori', 'idkategori');
     }
 
+    public function getRatingBuku(){
+        return $this->hasOne(Rating_buku::class, 'idbuku', 'idbuku');
+    }
+
 }

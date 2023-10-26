@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +18,7 @@ class Anggota extends Authenticatable
     public function getRatingAnggota() {
         return $this->hasOne(Rating_buku::class, 'noktp', 'noktp');
     }
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -55,4 +54,5 @@ class Anggota extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
 }
