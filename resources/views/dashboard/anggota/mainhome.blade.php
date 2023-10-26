@@ -31,16 +31,7 @@
                             <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                         </div>
                         <br>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
-                            <span class="text-danger">@error('password'){{ $message }}@enderror</span>
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                        <br>
+                        
                         <a href="{{ route('anggota.register') }}"> Create new Account</a> 
                 </form>
             </div>
