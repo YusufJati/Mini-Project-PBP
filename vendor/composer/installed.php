@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '7deca6ed38a1eed3d3f8011b066262e105a32e1d',
+        'pretty_version' => 'dev-bagian-utama',
+        'version' => 'dev-bagian-utama',
+        'reference' => 'fcc7e56185be270f93ac62a211afab9cb86ed769',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -371,9 +371,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '7deca6ed38a1eed3d3f8011b066262e105a32e1d',
+            'pretty_version' => 'dev-bagian-utama',
+            'version' => 'dev-bagian-utama',
+            'reference' => 'fcc7e56185be270f93ac62a211afab9cb86ed769',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
