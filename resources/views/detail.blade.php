@@ -81,7 +81,7 @@
                                 </tr>
                                 <tr>
                                     <td><small>{{ $komentar->getAnggotaKomentar->getRatingAnggota->skor_rating }}</small>
-                                        <div class="starContainer"></div>
+                                        <span class="starContainer"></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -123,7 +123,7 @@
                     container.appendChild(emptyStarIcon);
                 }
             }
-            
+
             const ratingContainer = document.querySelector('.starContainer');
             generateStars({{ $komentar->getAnggotaKomentar->getRatingAnggota->skor_rating }}, ratingContainer);
         </script>
