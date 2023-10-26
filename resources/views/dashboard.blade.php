@@ -31,7 +31,7 @@
                             <h4 class="card-title fw-bold">{{ $item->judul }}</h4>
                             <p class="card-text">{{ $item->pengarang}}</p>
                             <p class="card-text">{{ $item->penerbit}}</p>
-                            <a href="#" class="btn btn-primary">Lihat Detail</a>
+                            <a href="/detail/{{$item->idbuku}}" class="btn btn-primary">Lihat Detail</a>
                         </div>
                     </div>
                 </div>

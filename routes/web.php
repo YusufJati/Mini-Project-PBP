@@ -23,7 +23,7 @@ use App\Http\Controllers\AnggotaController;
 
 Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/detail', [DetailController::class, 'index']);
+Route::get('/detail/{buku}', [DetailController::class, 'index']);
 
 Auth::routes();
 

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DetailController extends Controller
 {
-    public function index()
-    {
-        return view('detail', [
-            'image' => 'undip.png',
-            'title' => 'Detail',
-            'active' => 'dashboard',
-        ]);
+    public function index(Buku $buku){
+        $buku -> load('getKomentarBuku');
+        return view('detail', ['buku' => $buku]);
     }
 }
+ 
