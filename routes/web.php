@@ -47,4 +47,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/riwayat', [AnggotaController::class, 'riwayat'])->name('anggota.riwayat');
+Route::get('/riwayat', [App\Http\Controllers\RiwayatController::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
