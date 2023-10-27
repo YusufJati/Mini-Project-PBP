@@ -23,4 +23,5 @@ class Buku extends Model
         return $this->hasOne(Rating_buku::class, 'idbuku', 'idbuku');
     }
 
+    
 }
