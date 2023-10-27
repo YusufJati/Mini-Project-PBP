@@ -1,8 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Anggota\AnggotaController;
 
 /*
@@ -36,13 +39,16 @@ Route::prefix('anggota')->name('anggota.')->group(function(){
         Route::view('/register','dashboard.anggota.register')->name('register');
         Route::post('/create',[AnggotaController::class,'create'])->name('create');
         Route::post('/check',[AnggotaController::class,'check'])->name('check');
+
     });
 
     Route::middleware(['auth:anggota'])->group(function(){
         Route::view('/mainhome','dashboard.anggota.mainhome')->name('mainhome');
+        Route::get('/logout', [LoginController::class,'logout'])->name('logout');
     });
 
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
