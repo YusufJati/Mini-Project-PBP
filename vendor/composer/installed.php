@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-bagian-utama',
         'version' => 'dev-bagian-utama',
-        'reference' => 'fcc7e56185be270f93ac62a211afab9cb86ed769',
+        'reference' => 'c7f358581fe647edecbe631a2f79f931dacd7a4f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -373,7 +373,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-bagian-utama',
             'version' => 'dev-bagian-utama',
-            'reference' => 'fcc7e56185be270f93ac62a211afab9cb86ed769',
+            'reference' => 'c7f358581fe647edecbe631a2f79f931dacd7a4f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

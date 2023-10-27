@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perpustakaan | @yield('title')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
     crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -25,10 +25,10 @@
     }
 
     .search-input {
-        width: 350px; 
- 
+        width: 350px;
+
     }
-    
+
 
 </style>
 <body>
@@ -36,24 +36,39 @@
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('images/bukk.png') }}" width="30" height="30" class="d-inline-block align-text-top me-0">    
+                    <img src="{{ asset('images/bukk.png') }}" width="30" height="30" class="d-inline-block align-text-top me-0">
                     Perpustakaan
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    
+
                     <div class="center-form">
                         <form class="d-flex p-2" role="search" >
-                        <br><input class="form-control me-3 search-input" type="search" placeholder="Cari Judul Buku, Penulis, ISBN" aria-label="Search"> 
-                        </form>  
+                        <br><input class="form-control me-3 search-input" type="search" placeholder="Cari Judul Buku, Penulis, ISBN" aria-label="Search">
+                        </form>
                     </div>
-                    <div>
-                        <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a>
-                        <a class="btn btn-outline-success text-white" href="{{ route('anggota.login') }}">Sign In</a>
 
-                    </div>           
+                    {{-- sign in - sign up --}}
+                    @guest
+                        <div>
+                            <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a>
+                            <a class="btn btn-outline-success text-white" href="{{ route('anggota.login') }}">Sign In</a>
+                        </div>
+                    @endguest
+
+
+                    {{-- logout --}}
+                    @auth
+                        <div>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-outline-secondary text-white">Logout</button>
+                            </form>
+                        </div>
+                    @endauth
+
                 </div>
             </div>
         </nav>
@@ -63,7 +78,7 @@
                     @yield('content')
                 </div>
             </div>
-                
+
         </div>
     </div>
 
