@@ -32,7 +32,7 @@
                         </div>
                         <br>
                         
-                        <a href="{{ route('anggota.register') }}"> Create new Account</a> 
+                        <a href="{{ route('anggota.register') }}"> Buat akun baru</a> 
                 </form>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -39,7 +40,7 @@ Route::prefix('anggota')->name('anggota.')->group(function(){
         Route::view('/register','dashboard.anggota.register')->name('register');
         Route::post('/create',[AnggotaController::class,'create'])->name('create');
         Route::post('/check',[AnggotaController::class,'check'])->name('check');
-
+ 
     });
 
     Route::middleware(['auth:anggota'])->group(function(){
@@ -58,3 +59,6 @@ Route::get('/riwayat', [App\Http\Controllers\RiwayatController::class, 'index'])
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('komentar', CommentController::class);

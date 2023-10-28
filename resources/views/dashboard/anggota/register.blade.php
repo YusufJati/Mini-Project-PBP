@@ -81,6 +81,7 @@
                         <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Register</button>
+                            <!-- <button href="{{ URL::previous() }}" class="btn btn-secondary">Back</button> -->
                         </div>
                         <br>
                         <a href="{{ route('anggota.login') }}"> I already have an account</a>
