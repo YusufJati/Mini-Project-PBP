@@ -10,4 +10,9 @@ class Peminjaman extends Model
     use HasFactory;
 
     protected $table = 'peminjaman';
+    protected $primaryKey = 'idtransaki';
+
+    public function getDetailTransaksi() {
+        return $this->hasOne(Detail_transaksi::class, 'idtransaksi', 'idtransaksi');
+    }
 }
