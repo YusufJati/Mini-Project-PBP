@@ -1,9 +1,13 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '7deca6ed38a1eed3d3f8011b066262e105a32e1d',
+        'pretty_version' => 'dev-bagian-utama',
+        'version' => 'dev-bagian-utama',
+<<<<<<< HEAD
+        'reference' => '79ee9fc72eb09003326832235293a69acd5166a4',
+=======
+        'reference' => 'c7f358581fe647edecbe631a2f79f931dacd7a4f',
+>>>>>>> b57914d3a3cf9dbc23eb4003428d8b321c28a73a
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -371,9 +375,13 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '7deca6ed38a1eed3d3f8011b066262e105a32e1d',
+            'pretty_version' => 'dev-bagian-utama',
+            'version' => 'dev-bagian-utama',
+<<<<<<< HEAD
+            'reference' => '79ee9fc72eb09003326832235293a69acd5166a4',
+=======
+            'reference' => 'c7f358581fe647edecbe631a2f79f931dacd7a4f',
+>>>>>>> b57914d3a3cf9dbc23eb4003428d8b321c28a73a
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -19,49 +19,48 @@
                 <div class="card mb-3" style="max-width: 100%; height: 360px;">
                     <div class="row g-0">
                         <div class="images col-md-4"> <!-- Kolom gambar diperbesar -->
-                            <img src="assets/dilan.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ asset('storage/file_gambar/' .$buku->file_gambar) }}" class="img-fluid rounded-start" alt="..." style="height: 22.5rem; width: 15rem; margin: 5 auto;">
                         </div>
                         <div class="detail-book col-md-8"> <!-- Kolom detail buku -->
                             <div class="card-body">
-                                <h5 class="card-title">Judul Buku</h5>
-                                <p class="card-text">4.8/5 {emot bintang}</p>
-                                <h5 class="card-title">Deskripsi Buku</h5>
+                                <h5 class="card-title">{{ $buku->judul }}</h5>
+                                <p class="card-text"> {{ $buku->getRatingBuku->skor_rating ?? '-' }} <span class="starContainer"></span></p>
                                 <li class="list-group-item">
                                     <table>
                                         <tr>
                                             <td>Stok</td>
                                             <td>&nbsp;:&nbsp;</td>
-                                            <td>10</td>
+                                            <td>{{ $buku->stok_tersedia }}</td>
                                         </tr>
                                         <tr>
                                             <td>Pengarang</td>
                                             <td>&nbsp;: </td>
-                                            <td>Pidi Baiq</td>
+                                            <td>{{ $buku->pengarang }}</td>
                                         </tr>
                                         <tr>
                                             <td>Penerbit</td>
                                             <td>&nbsp;:</td>
-                                            <td>Pastel Books</td>
+                                            <td>{{ $buku->penerbit }}</td>
                                         </tr>
                                         <tr>
                                             <td>Kategori</td>
                                             <td>&nbsp;:</td>
-                                            <td>Fiksi</td>
+                                            <td>{{ $buku->getKategoriBuku->nama }}</td>
                                         </tr>
                                         <tr>
                                             <td>ISBN</td>
                                             <td>&nbsp;:</td>
-                                            <td>0876545678987654</td>
+                                            <td>{{ $buku->isbn }}</td>
                                         </tr>
                                         <tr>
                                             <td>Editor</td>
                                             <td>&nbsp;:</td>
-                                            <td>-</td>
+                                            <td>{{ $buku->editor }}</td>
                                         </tr>
                                         <tr>
                                             <td>Kota Terbit</td>
                                             <td>&nbsp;:</td>
-                                            <td>Bandung</td>
+                                            <td>{{ $buku->kota_terbit }}</td>
                                         </tr>
                                     </table>
                                 </li>
@@ -70,31 +69,78 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="review-form col-md-4">
+                <h5 class="fw-normal">Tambah Komentar</h5>
+                <div class="content shadow p-3 mb-5 bg-light-subtle rounded">
+                    <form action="{{ route('komentar.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="noktp">noktp</label>
+                            <input type="text" class="form-control" id="noktp" name="noktp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="komentar">Komentar</label>
+                            <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+                        </div>
+                        <input type="hidden" name="buku_id" value="{{ $buku->id }}">
+                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                    </form>
+                </div>
+            </div>
 
-            <div class="review col-md-4">
+            <div class="review col-md-8">
                 <h5 class="fw-normal">Review Buku</h5>
-                <div class="content shadow p-3 mb-5 bg-light-subtle rounde">
-                    <div class="komen ">
+                <div class="content shadow p-3 mb-5 bg-light-subtle rounded">
+                    <div class="komen">
+                        @foreach ($buku->getkomentarBuku as $komentar)
                         <li class="list-group-item">
                             <table>
                                 <tr>
-                                    <td><small>Dewi Lokasari</small></td>
+                                    <td><small>{{ $komentar->getAnggotaKomentar->nama }}</small></td>
                                 </tr>
                                 <tr>
-                                    <td><small>4 {emot bintang}</small></td>
-                                </tr>
-                                <tr>
-                                    <td><small>Buku bagus, alur cerita tidak monoton, pengambaran latarnya juga bagus</small></td>
+                                    <td><small>{{ $komentar->komentar }}</small></td>
                                 </tr>
                             </table>
                         </li>
                         <hr>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
+        
+        <script>
+            function generateStars(rating, container) {
+                container.innerHTML = '';
+        
+                const maxRating = 10;
+                const numFullStars = Math.floor(rating / 2);
+                const hasHalfStar = rating % 2 !== 0;
+                const numEmptyStars = maxRating / 2 - numFullStars - (hasHalfStar ? 1 : 0);
+        
+                for (let i = 0; i < numFullStars; i++) {
+                    const starIcon = document.createElement('i');
+                    starIcon.className = 'bi bi-star-fill';
+                    container.appendChild(starIcon);
+                }
+        
+                if (hasHalfStar) {
+                    const halfStarIcon = document.createElement('i');
+                    halfStarIcon.className = 'bi bi-star-half';
+                    container.appendChild(halfStarIcon);
+                }
+        
+                for (let i = 0; i < numEmptyStars; i++) {
+                    const emptyStarIcon = document.createElement('i');
+                    emptyStarIcon.className = 'bi bi-star';
+                    container.appendChild(emptyStarIcon);
+                }
+            }
 
+            const ratingContainer = document.querySelector('.starContainer');
+            generateStars({{ $buku->getRatingBuku->skor_rating ?? 0 }}, ratingContainer);
+        </script>
 
-
-    </div>
 @endsection
