@@ -23,7 +23,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
 
                 if($guard === 'anggota'){
-                    return redirect('/home');
+                    return redirect('/');
                 }
                // return redirect(RouteServiceProvider::HOME);
             }

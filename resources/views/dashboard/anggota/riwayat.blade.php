@@ -34,16 +34,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Bulan</td>
-                                    <td>01-10-2023</td>
-                                    <td>05-10-2023</td>
-                                </tr>
-                                <tr>
-                                    <td>Dia Dilanku 1990</td>
-                                    <td>20-09-2023</td>
-                                    <td>23-09-2023</td>
-                                </tr>
+                                @foreach ($transaksi as $item)
+                                    <tr>
+                                        <td>{{ $item->getBuku->pluck('judul')->implode(' ')}}</td>
+                                        <td>{{ $item->getPeminjaman->tgl_pinjam }}</td>
+                                        <td>{{ $item->tgl_kembali }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Anggota;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Hash;
 
 class AnggotaController extends Controller
@@ -29,7 +30,7 @@ class AnggotaController extends Controller
         $anggota->noktp = $request->noktp;
         $anggota->nama = $request->nama;
         $anggota->email = $request->email;
-        $anggota->password = \Hash::make($request->password);
+        $anggota->password = Hash::make($request->password);
         $anggota->alamat = $request->alamat;
         $anggota->kota = $request->kota;
         $anggota->no_telp = $request->no_telp;
@@ -45,6 +46,7 @@ class AnggotaController extends Controller
 
     function check(Request $request){
         //validate
+        
         $request->validate([
             'email'=>'required|email|exists:anggota,email',
             'password'=>'required|min:5|max:30',
@@ -55,8 +57,10 @@ class AnggotaController extends Controller
         $creds = $request->only('email','password');
 
         if( Auth::guard('anggota')->attempt($creds) ){
+            Log::info('Pengguna dengan email ' . $request->input('email') . ' berhasil masuk.');
             return redirect('/');
         }else{
+            Log::info('Pengguna dengan email ' . $request->input('email') . ' gagal masuk.');
             return redirect()->route('anggota.login')->with('fail','Incorrect Credentials');
         }
     }
