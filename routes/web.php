@@ -40,7 +40,7 @@ Route::prefix('anggota')->name('anggota.')->group(function(){
         Route::view('/register','dashboard.anggota.register')->name('register');
         Route::post('/create',[AnggotaController::class,'create'])->name('create');
         Route::post('/check',[AnggotaController::class,'check'])->name('check');
-
+ 
     });
 
     Route::middleware(['auth:anggota'])->group(function(){
