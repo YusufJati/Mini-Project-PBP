@@ -55,7 +55,7 @@ class AnggotaController extends Controller
         $creds = $request->only('email','password');
 
         if( Auth::guard('anggota')->attempt($creds) ){
-            return redirect()->route('anggota.register');
+            return redirect('/');
         }else{
             return redirect()->route('anggota.login')->with('fail','Incorrect Credentials');
         }
