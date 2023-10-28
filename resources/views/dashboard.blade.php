@@ -6,19 +6,38 @@
 
 @section('content')
 
-     <form action="" method="get"> 
-        <div class="row"> 
-            <div class="col-12 col-sm-6 mb-3">
-                <select name="category" id="category" class="form-control form-select" style="width: 15rem">
-                    <option value="">Select Category</option>
-                    @foreach ($kategori as $item)
-                        <option value="{{ $item->idkategori }}">{{ $item->nama }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-    </form> 
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#kategori-dropdown').change(function() {
+            var selectedKategori = $(this).val();
+            filterBuku(selectedKategori);
+        });
+        
+        function filterBuku(kategoriId) {
+            $.ajax({
+                url: '/', 
+                type: 'GET',
+                data: { kategori: kategoriId },
+                success: function(response) {
+                    window.location.replace('/?kategori='+kategoriId);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+</script>
+<div class="col-12 col-sm-6 mb-3">
+    <select name="kategori" id="kategori-dropdown" class="form-control" style="width: 15rem">
+        <option value="">Select Category</option>
+        @foreach ($kategori as $item)
+            <option value="{{ $item->idkategori }}">{{ $item->nama }}</option>
+        @endforeach
+    </select>
+</div>       
 
     <div class="my-2">
         <div class="d-flex flex-wrap">
