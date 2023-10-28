@@ -35,7 +35,7 @@
     <div class="main">
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('images/bukk.png') }}" width="30" height="30" class="d-inline-block align-text-top me-0">
                     Perpustakaan
                 </a>
@@ -44,30 +44,50 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 
-                    <div class="center-form">
-                        <form class="d-flex p-2" role="search" >
-                        <br><input class="form-control me-3 search-input" type="search" placeholder="Cari Judul Buku, Penulis, ISBN" aria-label="Search">
+                <div class="center-form">
+                    <form action="" method="get">
+                        <div class="input-group mb-2" style="width: 30rem">
+                            <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Cari Judul Buku, Penulis, Penerbit, Tahun, ISBN" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <button class="btn btn-success" type="submit">Search</button>
+                            </div>
                         </form>
-                    </div>
+                </div>
+                    
 
-                    {{-- sign in - sign up --}}
-                    @guest
-                        <div>
-                            <a class="btn btn-outline-success text-white" href="{{ route('anggota.register') }}">Sign Up</a>
-                            <a class="btn btn-outline-success text-white" href="{{ route('anggota.login') }}">Sign In</a>
-                        </div>
-                    @endguest
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                <!-- Periksa apakah pengguna adalah tamu (belum terotentikasi) -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                    @endif
 
-
-                    {{-- logout --}}
-                    @auth
-                        <div>
-                            <form action="/logout" method="POST">
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @endguest
+                <!-- Jika pengguna sudah terotentikasi -->
+                @auth
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} (Sudah Terotentikasi)
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
-                                <button type="submit" class="btn btn-outline-secondary text-white">Logout</button>
                             </form>
                         </div>
-                    @endauth
+                    </li>
+                @endauth
+            </ul>
+
 
                 </div>
             </div>

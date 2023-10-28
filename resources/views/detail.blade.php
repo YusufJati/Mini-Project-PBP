@@ -19,7 +19,7 @@
                 <div class="card mb-3" style="max-width: 100%; height: 360px;">
                     <div class="row g-0">
                         <div class="images col-md-4"> <!-- Kolom gambar diperbesar -->
-                            <img src="assets/dilan.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ asset('storage/file_gambar/' .$buku->file_gambar) }}" class="img-fluid rounded-start" alt="..." style="height: 22.5rem; width: 15rem; margin: 5 auto;">
                         </div>
                         <div class="detail-book col-md-8"> <!-- Kolom detail buku -->
                             <div class="card-body">
@@ -69,8 +69,27 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="review-form col-md-4">
+                <h5 class="fw-normal">Tambah Komentar</h5>
+                <div class="content shadow p-3 mb-5 bg-light-subtle rounded">
+                    <form action="{{ route('komentar.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="noktp">noktp</label>
+                            <input type="text" class="form-control" id="noktp" name="noktp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="komentar">Komentar</label>
+                            <textarea class="form-control" id="komentar" name="komentar" rows="3" required></textarea>
+                        </div>
+                        <input type="hidden" name="buku_id" value="{{ $buku->id }}">
+                        <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                    </form>
+                </div>
+            </div>
 
-            <div class="review col-md-4">
+            <div class="review col-md-8">
                 <h5 class="fw-normal">Review Buku</h5>
                 <div class="content shadow p-3 mb-5 bg-light-subtle rounded">
                     <div class="komen">
