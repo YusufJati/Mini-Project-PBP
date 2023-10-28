@@ -19,7 +19,7 @@
                 <div class="card mb-3" style="max-width: 100%; height: 360px;">
                     <div class="row g-0">
                         <div class="images col-md-4"> <!-- Kolom gambar diperbesar -->
-                            <img src="assets/dilan.jpg" class="img-fluid rounded-start" alt="...">
+                            <img src="{{ asset('storage/file_gambar/' .$buku->file_gambar) }}" class="img-fluid rounded-start" alt="...">
                         </div>
                         <div class="detail-book col-md-8"> <!-- Kolom detail buku -->
                             <div class="card-body">

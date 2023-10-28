@@ -26,7 +26,7 @@
             @foreach ($buku as $item)
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                     <div class="card " style="width: 15rem; height: 100%">
-                        <img src="{{ asset('images/'.$item->cover) }}" class="card-img-top mx-auto" alt="..." style="height: 12rem; width: 10rem" display: block; margin: 0 auto;>
+                        <img src="{{ asset('storage/file_gambar/' .$item->file_gambar) }}" class="card-img-top mx-auto" alt="Gambar Buku" style="height: 12rem; width: 10rem; display: block; margin: 0 auto;">
                         <div class="card-body d-flex flex-column justify-content-around" style="overflow: hidden;">
                             <h4 class="card-title fw-bold">{{ $item->judul }}</h4>
                             <p class="card-text">{{ $item->pengarang}}</p>
