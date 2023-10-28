@@ -35,7 +35,7 @@
     <div class="main">
         <nav class="navbar navbar-dark navbar-expand-lg bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="/">
                     <img src="{{ asset('images/bukk.png') }}" width="30" height="30" class="d-inline-block align-text-top me-0">
                     Perpustakaan
                 </a>
