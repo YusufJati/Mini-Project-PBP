@@ -44,11 +44,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 
-                    <div class="center-form">
-                        <form class="d-flex p-2" role="search" >
-                        <br><input class="form-control me-3 search-input" type="search" placeholder="Cari Judul Buku, Penulis, ISBN" aria-label="Search">
+                <div class="center-form">
+                    <form action="" method="get">
+                        <div class="input-group mb-2" style="width: 30rem">
+                            <input type="text" name="keyword" id="keyword" class="form-control" placeholder="Cari Judul Buku, Penulis, Penerbit, Tahun, ISBN" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <button class="btn btn-success" type="submit">Search</button>
+                            </div>
                         </form>
-                    </div>
+                </div>
+                    
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">
